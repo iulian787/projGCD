@@ -33,10 +33,11 @@ It is assumed that the data was downloaded and unzipped in a folder, prior to an
 * appends `_mean` to all data columns
 * saves the tidy dataset2 into `results/tidyset2.txt`
 
-The tidyset2 will contain 180 rows, for 30 subjects and 6 activities each
-There are 81 columns, first for id of the subject and second for the activity
-the rest of 79 columns contain the mean of all variables that contain std or mean
-in their original feature name
+The tidyset2 will contain 180 rows, for 30 subjects and 6 activities each.
+There are 81 columns, first for id of the subject and second for the activity.
+The rest of 79 columns contain the mean of all variables that contain std or mean
+in their original feature name. The names of the variables are formed by appending
+"_mean" to the original names
 
  [1] "id"                                  
  [2] "activity"                            
