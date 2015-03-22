@@ -9,8 +9,8 @@ if(!file.exists(res_folder)){
 }
 ##reads a table from the file and applies given col names (optional argument)
 loadTable <- function (filename, cols = NULL){
-  print(paste("Getting table:", filename))
   f <- paste(data_path,"/", filename, sep="")
+  print(paste("Getting table:", f))
   tbl <- data.frame()
   
   if(is.null(cols)){
@@ -39,12 +39,6 @@ completeSet <- function(datatype, features){
   return (cbind(subject_data,y_data,x_data))
 }
 
-##saves the data into the result folder
-writeResult <- function (data,name){
-  print(paste("Saving data", name))
-  file <- paste(res_folder, "/", name,".txt" ,sep="")
-  write.table(data,file, row.names=FALSE)
-}
 #features used for col names when creating train and test data sets
 features <- loadTable("features.txt")
 # extract the second column, will be used for names of columns of sets (train or test)
@@ -62,11 +56,13 @@ data <- rbind(train, test)
 data <- arrange(data, id)
 activity_labels <- loadTable("activity_labels.txt")
 
-# replace the integer 1 to 6 with the name of activity
+# replace the activity integer (1..6) with the name of activity
 data$activity <- factor(data$activity, levels=activity_labels$V1, labels=activity_labels$V2)
 
 # capture the columns that have std or mean in the name, using grep
-tidyset1 <- data[,c(1,2,grep("std", colnames(data)), grep("mean", colnames(data)))]
+# columns 1 and 2 contain id and activity name
+columnsOfInterest=c(1,2, grep("std", colnames(data)), grep("mean", colnames(data)))
+tidyset1 <- data[,columnsOfInterest]
 
 ## 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 tidyset2 <- ddply(tidyset1, .(id, activity), .fun=function(x){ colMeans(x[,-c(1:2)]) })
@@ -75,5 +71,9 @@ tidyset2 <- ddply(tidyset1, .(id, activity), .fun=function(x){ colMeans(x[,-c(1:
 colnames(tidyset2)[-c(1:2)] <- paste(colnames(tidyset2)[-c(1:2)], "_mean", sep="")
 
 # Save tidy dataset2 into results folder
-writeResult(tidyset2,"tidyset2")
+print(paste("Saving data", "tidyset2"))
+file1 <- paste(res_folder, "/", "tidyset2.txt" ,sep="")
+write.table(tidyset2,file1, row.names=FALSE)
+
+
 
