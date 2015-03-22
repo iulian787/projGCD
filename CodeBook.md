@@ -114,7 +114,7 @@ in their original feature name
 [74] "fBodyAccMag.mean.._mean"             
 [75] "fBodyAccMag.meanFreq.._mean"         
 [76] "fBodyBodyAccJerkMag.mean.._mean"     
-[77] "fBodyBodyAccJerkMag.meanFreq.._mean" 
+[77] "fBodyBodyAccJerkMag.meanFreq.._mean"  
 [78] "fBodyBodyGyroMag.mean.._mean"        
 [79] "fBodyBodyGyroMag.meanFreq.._mean"    
 [80] "fBodyBodyGyroJerkMag.mean.._mean"    
