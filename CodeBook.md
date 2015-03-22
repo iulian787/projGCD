@@ -4,25 +4,25 @@ output: html_document
 ---
 
 ## Working with data
-Description of the run_analysis.R process
-It is assumed that the data was downloaded and unzipped in a folder, prior to analysis
+It is assumed that the data was downloaded and unzipped in a folder, prior to analysis  
+This code needs to be in a folder parallel to UCI folder (at the same level) 
+
+Description of the run_analysis.R process:  
 
 * Loads library `plyr` and `dplyr`
-
 * Creates results folder
 * defines 2 helper functions, one to read a table, and assign given column names, 
  and one to read a train or test complete set
- 
 * Loads feature data set `features.txt` used for columns names for actual data table
 
-* Loads and appends train dataset using `X_train.txt`, `y_train.txt`, `subject_train.txt`
-        * `subject_train` contains the ids for each subject (1..30)
-        * `y_train` contains the activity labels (1..6)
-        * `X_train` contains the data using the feature data set as columns
-* Loads and appends test dataset using `X_test.txt`, `y_test.txt`, `subject_test.txt`
-        * `subject_test` contains the ids
-        * `y_test` contains the activity labels
-        * `X_test` contains the data using the feature data set as columns
+* Loads and appends train dataset using `X_train.txt`, `y_train.txt`, `subject_train.txt`  
+    + `subject_train` contains the ids for each subject (1..30)  
+    + `y_train` contains the activity labels (1..6)  
+    + `X_train` contains the data using the feature data set as columns 
+* Loads and appends test dataset using `X_test.txt`, `y_test.txt`, `subject_test.txt` 
+    + `subject_test` contains the ids
+    + `y_test` contains the activity labels
+    + `X_test` contains the data using the feature data set as columns
 * concatenates train and test data
 * Rearrange the data using id
 * Loading activity labels `activity_labels.txt`
@@ -33,12 +33,13 @@ It is assumed that the data was downloaded and unzipped in a folder, prior to an
 * appends `_mean` to all data columns
 * saves the tidy dataset2 into `results/tidyset2.txt`
 
-The tidyset2 will contain 180 rows, for 30 subjects and 6 activities each.
-There are 81 columns, first for id of the subject and second for the activity.
+The tidyset2 will contain 180 rows, for 30 subjects and 6 activities each.  
+There are 81 columns, first for id of the subject and second for the activity.  
 The rest of 79 columns contain the mean of all variables that contain std or mean
-in their original feature name. The names of the variables are formed by appending
-"_mean" to the original names
+in their original feature name.  
 
+The names of the variables are formed by appending
+"_mean" to the original names  
  [1] "id"                                  
  [2] "activity"                            
  [3] "tBodyAcc.std...X_mean"               
