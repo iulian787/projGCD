@@ -7,7 +7,7 @@ output: html_document
 Description of the run_analysis.R process
 It is assumed that the data was downloaded and unzipped in a folder, prior to analysis
 
-1. Loads library `plyr` and `dplyr`
+* Loads library `plyr` and `dplyr`
 
 * Creates results folder
 * defines 2 helper functions, one to read a table, and assign given column names, 
