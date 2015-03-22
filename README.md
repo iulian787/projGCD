@@ -29,7 +29,16 @@ first download the files, and then unzip them in a folder
  UCI HAR Dataset is the data folder  
 clone the repo with someting like this:  
 git clone https://github.com/iulian787/projGCD.git  
+projGCD folder has to be at the same level with unzipped data folder
+```
+ls | more
+getdata_projectfiles_UCI HAR Dataset.zip
+projGCD/
+UCI HAR Dataset/
+```
+
 cd to projGCD folder, then launch rstudio or R  
+
 
 source("run_analysis.R")
 

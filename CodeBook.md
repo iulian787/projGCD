@@ -30,10 +30,11 @@ Description of the run_analysis.R process:
 * Extracts the `mean`,`std` into tidyset1
 
 * applies ddply to compute means for all variables, using id and activity 
-* appends `_mean` to all data columns
+* appends `_mean` to all data columns names
 * saves the tidy dataset2 into `results/tidyset2.txt`
 
-The tidyset2 will contain 180 rows, for 30 subjects and 6 activities each.  
+The tidyset2 will contain 180 rows, for 30 subjects and 6 activities each, and one
+header row.  
 There are 81 columns, first for id of the subject and second for the activity.  
 The rest of 79 columns contain the mean of all variables that contain std or mean
 in their original feature name.  
