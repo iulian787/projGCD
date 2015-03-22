@@ -41,6 +41,11 @@ in their original feature name.
 
 The names of the variables are formed by appending
 "_mean" to the original names  
+There are no changes to the units, compared to the original feature files.  
+Because the features are normalized, they are all a-dimensional, and all 
+values are between [-1, 1]. All the means calculated by this exercise will
+be between 1 and -1.   
+
  [1] "id"                                  
  [2] "activity"                            
  [3] "tBodyAcc.std...X_mean"               
